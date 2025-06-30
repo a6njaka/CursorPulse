@@ -16,7 +16,7 @@ A customizable mouse cursor enhancement tool that adds visual feedback for click
 ## Installation
 
 1. Clone the repository:
-   git clone https://github.com/a6njaka/mouse-highlighter.git
+   git clone https://github.com/a6njaka/mouse_highlighter.git
    cd mouse-highlighter
    
 2. Install required dependencies:
@@ -30,10 +30,6 @@ Right-click the system tray icon to access menu
 Use the configuration window to customize appearance
 Toggle visibility with Ctrl+Shift+M
 
-
-Right-click the system tray icon to access menu
-Use the configuration window to customize appearance
-Toggle visibility with Ctrl+Shift+M
 
 ## Requirements
 Python 3.6+
