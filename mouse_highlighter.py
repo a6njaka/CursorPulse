@@ -1,7 +1,7 @@
 """
 Mouse Highlighter - Visual mouse click feedback for tutorials and demos
 
-Copyright (C) 2023 Your Name
+Copyright (C) 2025 Njaka ANDRIAMAHENINA
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
