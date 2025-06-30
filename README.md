@@ -16,6 +16,39 @@ A customizable mouse cursor enhancement tool that adds visual feedback for click
 ## Installation
 
 1. Clone the repository:
-   ```bash
    git clone https://github.com/a6njaka/mouse-highlighter.git
    cd mouse-highlighter
+   
+2. Install required dependencies:
+	pip install -r requirements.txt
+
+## Usage
+Run the application:
+	python mouse_animation.py
+	
+Right-click the system tray icon to access menu
+Use the configuration window to customize appearance
+Toggle visibility with Ctrl+Shift+M
+
+
+Right-click the system tray icon to access menu
+Use the configuration window to customize appearance
+Toggle visibility with Ctrl+Shift+M
+
+## Requirements
+Python 3.6+
+
+Windows OS (for proper transparency effects)
+
+Packages: tkinter, pyautogui, pynput, keyboard, pystray, Pillow
+
+## Contributing
+Contributions are welcome! Please open an issue or pull request for any improvements.
+
+## License
+This project is licensed under [GPL-3.0](LICENSE).  
+Key points:
+- You may use, modify, and distribute this software
+- **All derivative works must remain under GPL-3.0**
+- You must provide source code with distributions
+- No warranty is provided
