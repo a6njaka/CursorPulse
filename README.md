@@ -13,6 +13,12 @@ A customizable mouse cursor enhancement tool that adds visual feedback for click
 - System tray integration
 - Configuration GUI for easy customization
 
+
+## Download Pre-Compiled Version
+For users without Python, download the latest standalone executable:<br>
+[Download](https://github.com/a6njaka/mouse-highlighter/dist/mouse_highlighter.exe) (right-click → "Save link as")<br>
+SHA-256 Checksum: `8ac7b0f9566a6aaf4cd2410122091600e90f1752fad5f73332312269231adc6c` (verify integrity)*
+
 ## Installation
 
 1. Clone the repository:
