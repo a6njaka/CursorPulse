@@ -29,23 +29,15 @@ import win32gui
 import pystray
 from PIL import Image, ImageDraw
 from pynput import mouse
+import json
+import os
+from pathlib import Path
 
 
 class MouseHighlighter:
     def __init__(self):
         # Default values
-        self.config = {
-            'BASE_RADIUS': 50,
-            'MIN_RADIUS': 10,
-            'DRAG_RADIUS': 50,
-            'DEFAULT_COLOR': 'green',
-            'LEFT_CLICK_COLOR': 'green',
-            'RIGHT_CLICK_COLOR': 'red',
-            'DRAG_COLOR': 'yellow',
-            'ANIMATION_DURATION': 0.1,
-            'DRAG_DETECT_DELAY': 0.25,
-            'TOGGLE_HOTKEY': 'ctrl+shift+m'
-        }
+        self.config = self.load_settings()  # Load saved settings or defaults
 
         self.setup_main_window()
         self.setup_tray_icon()
@@ -243,6 +235,7 @@ class MouseHighlighter:
             'DRAG_DETECT_DELAY': round(self.drag_delay_var.get(), 1),
             'TOGGLE_HOTKEY': self.hotkey_var.get()
         }
+        self.save_json_settings(self.config)
         messagebox.showinfo("Settings Saved", "Settings have been updated successfully!")
         # self.minimize_to_tray()
 
@@ -394,6 +387,46 @@ class MouseHighlighter:
         self.root.quit()
         self.highlight_window.destroy()
         self.config_window.destroy()
+
+    def get_settings_path(self):
+        """Return platform-appropriate settings file path"""
+        if os.name == 'nt':  # Windows
+            config_dir = os.path.join(os.getenv('APPDATA'), 'MouseHighlighter')
+        else:  # Linux/Mac
+            config_dir = os.path.join(os.path.expanduser('~'), '.config', 'mouse_highlighter')
+
+        Path(config_dir).mkdir(parents=True, exist_ok=True)
+        return os.path.join(config_dir, 'settings.json')
+
+    def save_json_settings(self, settings):
+        """Save settings to JSON file"""
+        settings_path = self.get_settings_path()
+        with open(settings_path, 'w') as f:
+            json.dump(settings, f, indent=4)
+
+    def load_settings(self):
+        """Load settings from JSON file or return defaults"""
+        settings_path = self.get_settings_path()
+        print(settings_path)
+        defaults = {
+            'BASE_RADIUS': 30,
+            'MIN_RADIUS': 10,
+            'DEFAULT_COLOR': 'green',
+            'LEFT_CLICK_COLOR': 'green',
+            'RIGHT_CLICK_COLOR': 'red',
+            'DRAG_COLOR': 'yellow',
+            'ANIMATION_DURATION': 0.1,
+            'DRAG_DETECT_DELAY': 0.25,
+            'TOGGLE_HOTKEY': 'ctrl+shift+m'
+        }
+
+        try:
+            with open(settings_path, 'r') as f:
+                loaded = json.load(f)
+                # Merge with defaults in case new settings were added later
+                return {**defaults, **loaded}
+        except (FileNotFoundError, json.JSONDecodeError):
+            return defaults
 
     # [Rest of the methods remain unchanged...]
 
