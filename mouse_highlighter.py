@@ -312,6 +312,7 @@ class MouseHighlighter:
         )
 
     def grow_animation(self, color='green'):
+        # color = self.current_color
         if not self.enabled:
             return
         self.current_color = color
@@ -348,7 +349,7 @@ class MouseHighlighter:
                 else:
                     self.is_dragging = False
                     self.current_color = self.config['DEFAULT_COLOR']
-                    threading.Thread(target=self.grow_animation, args=(self.config['LEFT_CLICK_COLOR'],), daemon=True).start()
+                    threading.Thread(target=self.grow_animation, args=(self.config['DEFAULT_COLOR'],), daemon=True).start()
         elif button.name == 'right' and pressed:
             threading.Thread(target=self.grow_animation, args=(self.config['RIGHT_CLICK_COLOR'],), daemon=True).start()
 
