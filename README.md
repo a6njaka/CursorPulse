@@ -1,8 +1,8 @@
-# Mouse Highlighter
+# Cursor Pulse
 
 A customizable mouse cursor enhancement tool that adds visual feedback for clicks and drags, perfect for tutorials, presentations, or screen recordings.
 
-![Mouse Highlighter Screenshot](./screenshot.png) <!-- Replace with your actual screenshot file -->
+![Cursor Pulse Screenshot](./screenshot.png) <!-- Replace with your actual screenshot file -->
 
 ## Features
 
@@ -16,21 +16,21 @@ A customizable mouse cursor enhancement tool that adds visual feedback for click
 
 ## Download Pre-Compiled Version
 For users without Python, download the latest standalone executable:<br>
-[Download](https://github.com/a6njaka/mouse_highlighter/releases/download/v1.0.0/mouse_highlighter.exe) (right-click → "Save link as")<br>
-SHA-256 Checksum: `8ac7b0f9566a6aaf4cd2410122091600e90f1752fad5f73332312269231adc6c` (verify integrity)*
+[Download Cursor Pulse v1.0.0](https://github.com/a6njaka/CursorPulse/releases/download/v1.0.0/CursorPulse_v1.0.0.exe) (right-click → "Save link as")<br>
+SHA-256 Checksum: `5201042903c537828b75cc0515caf243324541e5d24a00079d5323813a0d09be` (verify integrity)*
 
 ## Installation
 
 1. Clone the repository:
-   git clone https://github.com/a6njaka/mouse_highlighter.git
-   cd mouse-highlighter
+   git clone https://github.com/a6njaka/CursorPulse.git
+   cd CursorPulse
    
 2. Install required dependencies:
 	pip install -r requirements.txt
 
 ## Usage
 Run the application:
-	python mouse_animation.py
+	python CursorPulse.py
 	
 Right-click the system tray icon to access menu
 Use the configuration window to customize appearance
