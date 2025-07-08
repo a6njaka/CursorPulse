@@ -44,6 +44,8 @@ class MouseHighlighter:
         self.setup_config_gui()
         self.setup_mouse_highlight()
         self.setup_menu()
+        self.show_config_gui()
+        # self.minimize_to_tray()
 
     def setup_main_window(self):
         self.root = tk.Tk()
@@ -409,7 +411,7 @@ class MouseHighlighter:
         settings_path = self.get_settings_path()
         print(settings_path)
         defaults = {
-            'BASE_RADIUS': 30,
+            'BASE_RADIUS': 50,
             'MIN_RADIUS': 10,
             'DEFAULT_COLOR': 'green',
             'LEFT_CLICK_COLOR': 'green',
@@ -427,8 +429,6 @@ class MouseHighlighter:
                 return {**defaults, **loaded}
         except (FileNotFoundError, json.JSONDecodeError):
             return defaults
-
-    # [Rest of the methods remain unchanged...]
 
 
 if __name__ == "__main__":
