@@ -1,5 +1,5 @@
 """
-Mouse Highlighter - Visual mouse click feedback for tutorials and demos
+Cursor Pulse - Visual mouse click feedback for tutorials and demos
 
 Copyright (C) 2025 Njaka ANDRIAMAHENINA
 
@@ -71,7 +71,7 @@ class MouseHighlighter:
         self.config_window.config(menu=menubar)
 
     def show_about(self):
-        messagebox.showinfo("About", "Developer: Njaka ANDRIAMAHENINA\nVersion: 1.0")
+        messagebox.showinfo("About", "Developer: Njaka ANDRIAMAHENINA\nVersion: 1.0.0")
 
     def setup_tray_icon(self):
         image = Image.new('RGB', (64, 64), 'black')
@@ -86,7 +86,7 @@ class MouseHighlighter:
         self.tray_icon = pystray.Icon(
             "mouse_highlighter",
             image,
-            "Mouse Highlighter",
+            "Cursor Pulse",
             menu
         )
 
@@ -98,7 +98,7 @@ class MouseHighlighter:
 
     def setup_config_gui(self):
         self.config_window = tk.Toplevel()
-        self.config_window.title("Mouse Highlighter Configuration")
+        self.config_window.title("Cursor Pulse v1.0.0")
         # self.config_window.protocol('WM_DELETE_WINDOW', self.hide_to_tray)
 
         # Set fixed window size
