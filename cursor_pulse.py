@@ -32,6 +32,8 @@ from pynput import mouse
 import json
 import os
 from pathlib import Path
+import sys
+
 
 
 class MouseHighlighter:
@@ -74,9 +76,7 @@ class MouseHighlighter:
         messagebox.showinfo("About", "Developer: Njaka ANDRIAMAHENINA\nVersion: 1.0.0")
 
     def setup_tray_icon(self):
-        image = Image.new('RGB', (64, 64), 'black')
-        dc = ImageDraw.Draw(image)
-        dc.ellipse((16, 16, 48, 48), outline='green', width=4)
+        tray_image = Image.open("assets/64.png")
 
         menu = (
             pystray.MenuItem('Show Config', self.show_config_gui),
@@ -85,7 +85,7 @@ class MouseHighlighter:
 
         self.tray_icon = pystray.Icon(
             "mouse_highlighter",
-            image,
+            tray_image,
             "Cursor Pulse",
             menu
         )
