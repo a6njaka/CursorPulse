@@ -1,21 +1,3 @@
-"""
-Cursor Pulse - Visual mouse click feedback for tutorials and demos
-
-Copyright (C) 2025 Njaka ANDRIAMAHENINA
-
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program. If not, see <https://www.gnu.org/licenses/>.
-"""
 import tkinter as tk
 from tkinter import ttk, messagebox, Menu
 import webbrowser
@@ -32,8 +14,18 @@ from pynput import mouse
 import json
 import os
 from pathlib import Path
-import sys
+import sys # <--- ADD THIS
 
+# <--- ADD THIS HELPER FUNCTION
+def resource_path(relative_path):
+    """ Get absolute path to resource, works for dev and for PyInstaller """
+    try:
+        # PyInstaller creates a temp folder and stores path in _MEIPASS
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+
+    return os.path.join(base_path, relative_path)
 
 
 class MouseHighlighter:
@@ -53,6 +45,10 @@ class MouseHighlighter:
         self.root = tk.Tk()
         self.root.withdraw()
         self.root.protocol('WM_DELETE_WINDOW', self.hide_to_tray)
+        # Set the application icon for the main window (influences taskbar)
+        icon_path = resource_path("assets/CursorPulse.ico")
+        if os.path.exists(icon_path):
+            self.root.iconbitmap(icon_path) # <--- ADD THIS
 
     def setup_menu(self):
         menubar = Menu(self.config_window)
@@ -76,7 +72,9 @@ class MouseHighlighter:
         messagebox.showinfo("About", "Developer: Njaka ANDRIAMAHENINA\nVersion: 1.0.0")
 
     def setup_tray_icon(self):
-        tray_image = Image.open("assets/64.png")
+        # Use a PNG for the tray icon, pystray handles resizing
+        image_path = resource_path("assets/64.png") # You can choose 128.png as well
+        image = Image.open(image_path) # <--- MODIFIED
 
         menu = (
             pystray.MenuItem('Show Config', self.show_config_gui),
@@ -85,7 +83,7 @@ class MouseHighlighter:
 
         self.tray_icon = pystray.Icon(
             "mouse_highlighter",
-            tray_image,
+            image,
             "Cursor Pulse",
             menu
         )
@@ -99,7 +97,10 @@ class MouseHighlighter:
     def setup_config_gui(self):
         self.config_window = tk.Toplevel()
         self.config_window.title("Cursor Pulse v1.0.0")
-        # self.config_window.protocol('WM_DELETE_WINDOW', self.hide_to_tray)
+        # Set the icon for the config window (top left of the window)
+        icon_path = resource_path("assets/CursorPulse.ico")
+        if os.path.exists(icon_path):
+            self.config_window.iconbitmap(icon_path) # <--- ADD THIS
 
         # Set fixed window size
         window_width = 400
