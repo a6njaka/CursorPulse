@@ -218,8 +218,9 @@ class MouseHighlighter:
             row=9, column=0, columnspan=3, padx=100, pady=10, sticky='ew')
 
         # Status Bar
-        self.status_bar = ttk.Label(self.config_window, text="Developer: Njaka ANDRIAMAHENINA", relief=tk.SUNKEN, anchor=tk.W)
-        self.status_bar.grid(row=10, column=0, columnspan=3, sticky='ew', padx=0, pady=0)
+        self.status_bar = ttk.Label(self.config_window, text="Developer: Njaka ANDRIAMAHENINA", relief=tk.GROOVE, anchor=tk.W)
+        self.status_bar.grid(row=10, column=0, columnspan=3, sticky='ew', padx=0, pady=18)
+        # ttk.Label(self.config_window, text="Developer: Njaka ANDRIAMAHENINA", anchor='w').grid(row=10, column=0, padx=5, pady=15, sticky='w')
 
 
     def update_radius_display(self, which):
