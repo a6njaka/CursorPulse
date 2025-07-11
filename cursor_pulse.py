@@ -86,7 +86,7 @@ class MouseHighlighter:
 
         menu = (
             pystray.MenuItem('Show Config', self.show_config_gui),
-            pystray.MenuItem('Exit', self.quit_application)
+            # pystray.MenuItem('Exit', self.quit_application)
         )
 
         self.tray_icon = pystray.Icon(
