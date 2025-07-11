@@ -14,9 +14,8 @@ from pynput import mouse
 import json
 import os
 from pathlib import Path
-import sys # <--- ADD THIS
+import sys
 
-# <--- ADD THIS HELPER FUNCTION
 def resource_path(relative_path):
     """ Get absolute path to resource, works for dev and for PyInstaller """
     try:
@@ -48,7 +47,16 @@ class MouseHighlighter:
         # Set the application icon for the main window (influences taskbar)
         icon_path = resource_path("assets/CursorPulse.ico")
         if os.path.exists(icon_path):
-            self.root.iconbitmap(icon_path) # <--- ADD THIS
+            self.root.iconbitmap(icon_path)
+
+        if os.name == 'nt':  # Only for Windows
+            try:
+                # Set AppUserModelID for consistent taskbar grouping and icon
+                # You should use a unique ID for your application
+                myappid = 'Njaka.CursorPulse.1.0' # Example: 'Njaka.CursorPulse.1.0'
+                ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
+            except AttributeError:
+                pass # Not available on older Windows versions or Wine
 
     def setup_menu(self):
         menubar = Menu(self.config_window)
@@ -73,8 +81,8 @@ class MouseHighlighter:
 
     def setup_tray_icon(self):
         # Use a PNG for the tray icon, pystray handles resizing
-        image_path = resource_path("assets/64.png") # You can choose 128.png as well
-        image = Image.open(image_path) # <--- MODIFIED
+        image_path = resource_path("assets/64.png") # Or "assets/128.png"
+        image = Image.open(image_path)
 
         menu = (
             pystray.MenuItem('Show Config', self.show_config_gui),
@@ -100,7 +108,7 @@ class MouseHighlighter:
         # Set the icon for the config window (top left of the window)
         icon_path = resource_path("assets/CursorPulse.ico")
         if os.path.exists(icon_path):
-            self.config_window.iconbitmap(icon_path) # <--- ADD THIS
+            self.config_window.iconbitmap(icon_path)
 
         # Set fixed window size
         window_width = 400
@@ -121,8 +129,6 @@ class MouseHighlighter:
 
         self.config_window.protocol('WM_DELETE_WINDOW', self.hide_to_tray)
         self.config_window.withdraw()
-
-
 
         # Configure grid layout
         self.config_window.grid_columnconfigure(0, weight=1)
@@ -210,6 +216,11 @@ class MouseHighlighter:
         # Save button
         ttk.Button(self.config_window, text="Save Settings", command=self.save_settings).grid(
             row=9, column=0, columnspan=3, padx=100, pady=10, sticky='ew')
+
+        # Status Bar
+        self.status_bar = ttk.Label(self.config_window, text="Developer: Njaka ANDRIAMAHENINA", relief=tk.SUNKEN, anchor=tk.W)
+        self.status_bar.grid(row=10, column=0, columnspan=3, sticky='ew', padx=0, pady=0)
+
 
     def update_radius_display(self, which):
         if which == 'base':
