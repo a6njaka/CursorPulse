@@ -2,7 +2,7 @@
 
 A customizable mouse cursor enhancement tool that adds visual feedback for clicks and drags, perfect for tutorials, presentations, or screen recordings.
 
-![Cursor Pulse Screenshot](./screenshot.png) <!-- Replace with your actual screenshot file -->
+![Cursor Pulse Screenshot](./screenshot2.png) <!-- Replace with your actual screenshot file -->
 
 ## Features
 
