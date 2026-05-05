@@ -16,7 +16,7 @@ A customizable mouse cursor enhancement tool that adds visual feedback for click
 
 ## Download Pre-Compiled Version
 For users without Python, download the latest standalone executable:<br>
-[Download Cursor Pulse v1.0.0](https://github.com/a6njaka/CursorPulse/releases/download/v1.5.0/Cursor_Pulse_v1.5.0.exe) (right-click → "Save link as")<br>
+[Download Cursor Pulse v1.5.0](https://github.com/a6njaka/CursorPulse/releases/download/v1.5.0/Cursor_Pulse_v1.5.0.exe) (right-click → "Save link as")<br>
 SHA-256 Checksum: `sha256:ded9b1513b35be7afde1eb1d07f7e2f67f2f5b061daeb8dfee4f75938fa333fc` (verify integrity)*
 
 ## Installation
