@@ -9,15 +9,15 @@ A customizable mouse cursor enhancement tool that adds visual feedback for click
 - Visual circle around mouse cursor
 - Customizable colors for different click types
 - Adjustable sizes and animation durations
-- Toggle visibility with hotkey (Ctrl+Shift+M by default)
+- Toggle visibility with hotkey (Ctrl+Shift+F12 by default)
 - System tray integration
 - Configuration GUI for easy customization
 
 
 ## Download Pre-Compiled Version
 For users without Python, download the latest standalone executable:<br>
-[Download Cursor Pulse v1.0.0](https://github.com/a6njaka/CursorPulse/releases/download/v1.0.0/CursorPulse_v1.0.0.exe) (right-click → "Save link as")<br>
-SHA-256 Checksum: `3ec732d47bf3f540a389f7bf733f120c94a043284630b3c2c68158f843381f11` (verify integrity)*
+[Download Cursor Pulse v1.0.0](https://github.com/a6njaka/CursorPulse/releases/download/v1.5.0/Cursor_Pulse_v1.5.0.exe) (right-click → "Save link as")<br>
+SHA-256 Checksum: `sha256:ded9b1513b35be7afde1eb1d07f7e2f67f2f5b061daeb8dfee4f75938fa333fc` (verify integrity)*
 
 ## Installation
 
