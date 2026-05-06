@@ -34,7 +34,7 @@ Run the application:
 	
 Right-click the system tray icon to access menu
 Use the configuration window to customize appearance
-Toggle visibility with Ctrl+Shift+M
+Toggle visibility with Ctrl+Shift+F12
 
 
 ## Requirements
